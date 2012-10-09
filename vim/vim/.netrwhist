@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/ketch/clawpack/pyclaw'
+let g:netrw_dirhist_2='/Users/ketch/Research/Software/mendeley-oapi-example'
+let g:netrw_dirhist_3='/Users/ketch/clawpack/pyclaw/src/fortran/2d/sharpclaw'
+let g:netrw_dirhist_4='/Users/ketch/clawpack/pyclaw/apps/acoustics/1d/homogeneous'
+let g:netrw_dirhist_5='/Users/ketch/clawpack/riemann/src'
+let g:netrw_dirhist_6='/Users/ketch/clawpack/pyclaw/apps/advection/2d/example1/advection'
+let g:netrw_dirhist_7='/Users/ketch/clawpack/pyclaw/apps/advection/2d/example1'
+let g:netrw_dirhist_8='/Users/ketch/Research/Projects/scipy_2011_pyclaw/papers'
