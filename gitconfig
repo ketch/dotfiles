@@ -1,0 +1,14 @@
+[user]
+	name = David Ketcheson
+	email = dketch@gmail.com
+[core]
+	editor = vim
+	askpass = /Users/ketch/git-password
+	excludesfile = /Users/ketch/.gitignore
+[merge]
+	log = true
+[alias]
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
+
+[credential]
+	helper = cache
