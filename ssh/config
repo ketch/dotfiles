@@ -1,0 +1,15 @@
+Host numerics
+      User l-ketchedi
+      Hostname 10.254.8.113
+      ForwardAgent yes
+      ForwardX11 yes
+      ForwardX11Trusted yes
+      RemoteForward 22821 localhost:22
+
+Host davidketcheson
+      User dketch
+      Hostname davidketcheson.info
+
+Host numerics numerics.kaust.edu.sa
+    Hostname 10.254.8.113
+    User l-ketchedi
