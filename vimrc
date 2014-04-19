@@ -6,6 +6,8 @@ set autoread
 "set smartcase
 "set cursorline
 
+call pathogen#infect()
+
 " allow backspacing over everything in insert mode 
 set backspace=indent,eol,start 
 
@@ -82,7 +84,8 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif 
 
 if &t_Co >= 256 || has("gui_running")
-    colorscheme inspiration626943
+    colorscheme gruvbox
+    set background=dark
 endif
 
 sy on
@@ -103,5 +106,4 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <tab> %
 vnoremap <tab> %
 
-call pathogen#infect()
 "set statusline=%{fugitive#statusline()}
