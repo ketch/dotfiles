@@ -3,7 +3,6 @@
 	email = dketch@gmail.com
 [core]
 	editor = vim
-	askpass = /Users/ketch/git-password
 	excludesfile = /Users/ketch/.gitignore
 [merge]
 	log = true
