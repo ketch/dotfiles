@@ -106,4 +106,19 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <tab> %
 vnoremap <tab> %
 
+" Syntax checking with syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" Ignore some style errors
+let g:syntastic_python_flake8_post_args='--ignore=E201,E202,E231,E731,E226,E225,E501,E302,E701,E221,E222,E306,E127'
 "set statusline=%{fugitive#statusline()}
+
+"Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+vnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
