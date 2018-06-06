@@ -22,7 +22,7 @@ export VISCLAW=/Users/ketch/clawpack/visclaw
 export CLAWUTIL=/Users/ketch/clawpack/clawutil
 export PYTHONPATH=$SOFT
 
-alias workstation="ssh ketch@10.68.170.4"
+alias workstation="ssh ketch@10.68.171.135"
 alias numerics="ssh l-ketchedi@10.254.8.113"
 alias laptop="ssh ketch@10.253.17.255"
 alias amath="ssh -D 9999 ssh.amath.washington.edu"
