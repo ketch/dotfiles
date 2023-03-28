@@ -1,103 +1,103 @@
-" Use Vim settings, rather then Vi settings (much better!). 
-" This must be first, because it changes other options as a side effect. 
-set nocompatible 
-set autoread
-"set ignorecase
-"set smartcase
-"set cursorline
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+set autoread " update file open in vim if it is modified by another program
+"set ignorecase " case-insensitive search
+set cursorline " highlight the whole line where the cursor is
 
 call pathogen#infect()
 
-" allow backspacing over everything in insert mode 
-set backspace=indent,eol,start 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
 nnoremap ; :
 "nore : ;
 
+" quickly enter some common commands using a command and shorthand
 let mapleader = ","
 let g:mapleader = ","
 
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
-map <leader>tn :tabnew 
+map <leader>tn :tabnew
 map <leader>cd :cd %:p:h<cr>
 map <silent> ,/ :nohlsearch<CR>
 
+" jj exits insert mode
 inoremap jj <Esc>
 
-set autoindent " always set autoindenting on 
-set nosmartindent
-set et 
-set sw=4 
-set smarttab 
+set autoindent " indent next line same as current line
+set nosmartindent " don't adjust indentation based on syntax
+set et  " expand tab: replace tabs with spaces
+set sw=4 " use 4 spaces for indentation
+set smarttab " no idea what this really does
 
-set backup
+set backup " where to put vim backup files
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
-set scrolloff =5 
-set history=500 " keep 50 lines of command line history 
-set ruler " show the cursor position all the time 
-set showcmd " display incomplete commands 
-set incsearch " do incremental searching 
+set scrolloff =5 " scroll file so cursor is always this far from top/bottom edge
+set history=500 " keep 500 lines of command line history
+set ruler " show the cursor position all the time
+set showcmd " display incomplete commands
+set incsearch " do incremental searching (search as you type)
 
-" Don't use Ex mode, use Q for formatting 
-map Q gq 
+set lines=80 " Window size
+set columns=140
+" Don't use Ex mode, use Q for formatting
+map Q gq
 "nmap Q gqap
 
-" This is an alternative that also works in block mode, but the deleted 
-" text is lost and it only works for putting the current register. 
-"vnoremap p "_dp 
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+ syntax on
+ set hlsearch
+endif
 
-" Switch syntax highlighting on, when the terminal has colors 
-" Also switch on highlighting the last used search pattern. 
-if &t_Co > 2 || has("gui_running") 
- syntax on 
- set hlsearch 
-endif 
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+    " Enable file type detection.
+    " Use the default filetype settings, so that mail gets 'tw' set to 72,
+    " 'cindent' is on in C files, etc.
+    " Also load indent files, to automatically do language-dependent indenting.
+    "filetype plugin indent on
 
-" Only do this part when compiled with support for autocommands. 
-if has("autocmd") 
+    set shellslash
 
-" Enable file type detection. 
-" Use the default filetype settings, so that mail gets 'tw' set to 72, 
-" 'cindent' is on in C files, etc. 
-" Also load indent files, to automatically do language-dependent indenting. 
-"filetype plugin indent on 
+    set grepprg=grep\ -nH\ $*
 
-set shellslash
+    let g:tex_flavor='latex'
+    let g:TeX_ViewRule_pdf='Preview'
 
-set grepprg=grep\ -nH\ $*
-
-let g:tex_flavor='latex'
-let g:TeX_ViewRule_pdf='Preview'
-
-" For all text files set 'textwidth' to 78 characters. 
-autocmd FileType text setlocal textwidth=78 
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
-
-
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
+    autocmd FileType python compiler pylint
+    let g:pylint_onwrite = 0
 endif
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif 
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 if &t_Co >= 256 || has("gui_running")
     colorscheme gruvbox
     set background=dark
 endif
 
-sy on
+sy on " syntax highlighting on
 
-set gfn=Menlo\ Regular:h12
+set gfn=Menlo\ Regular:h14 " default font
+
+" code folding
 set fen
+set foldmethod=indent
+set foldlevel=99
 
-set wildignore=*.pyc,*.swp,*.o,*.so
+set wildignore=*.pyc,*.swp,*.o,*.so  " file finder ignores these
 set visualbell
-set noerrorbells
+set noerrorbells " vim won't make sounds
 
-set pastetoggle=<F2>
+set pastetoggle=<F2>  " shortcut for :set paste or :set nopaste
 
 cmap w!! w !sudo tee % >/dev/null
 
